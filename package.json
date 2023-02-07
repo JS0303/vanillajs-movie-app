@@ -1,0 +1,21 @@
+{
+  "name": "vanillajs-movie-app",
+  "version": "1.0.0",
+  "description": "fastcampus vanillajs-movie-app clone",
+  "main": "index.js",
+  "scripts": {
+    "dev": "parcel ./index.html",
+    "build": "parcel build ./index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JS0303/vanillajs-movie-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JS0303/vanillajs-movie-app/issues"
+  },
+  "homepage": "https://github.com/JS0303/vanillajs-movie-app#readme"
+}
