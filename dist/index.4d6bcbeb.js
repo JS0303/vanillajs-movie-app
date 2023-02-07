@@ -578,7 +578,37 @@ class App extends (0, _core.Component) {
 }
 exports.default = App;
 
-},{"./core/core":"3SuZC","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3SuZC":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./core/core":"3SuZC"}],"gkKU3":[function(require,module,exports) {
+exports.interopDefault = function(a) {
+    return a && a.__esModule ? a : {
+        default: a
+    };
+};
+exports.defineInteropFlag = function(a) {
+    Object.defineProperty(a, "__esModule", {
+        value: true
+    });
+};
+exports.exportAll = function(source, dest) {
+    Object.keys(source).forEach(function(key) {
+        if (key === "default" || key === "__esModule" || dest.hasOwnProperty(key)) return;
+        Object.defineProperty(dest, key, {
+            enumerable: true,
+            get: function() {
+                return source[key];
+            }
+        });
+    });
+    return dest;
+};
+exports.export = function(dest, destName, get) {
+    Object.defineProperty(dest, destName, {
+        enumerable: true,
+        get: get
+    });
+};
+
+},{}],"3SuZC":[function(require,module,exports) {
 ///// Component /////
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
@@ -661,37 +691,7 @@ class Store {
     }
 }
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports) {
-exports.interopDefault = function(a) {
-    return a && a.__esModule ? a : {
-        default: a
-    };
-};
-exports.defineInteropFlag = function(a) {
-    Object.defineProperty(a, "__esModule", {
-        value: true
-    });
-};
-exports.exportAll = function(source, dest) {
-    Object.keys(source).forEach(function(key) {
-        if (key === "default" || key === "__esModule" || dest.hasOwnProperty(key)) return;
-        Object.defineProperty(dest, key, {
-            enumerable: true,
-            get: function() {
-                return source[key];
-            }
-        });
-    });
-    return dest;
-};
-exports.export = function(dest, destName, get) {
-    Object.defineProperty(dest, destName, {
-        enumerable: true,
-        get: get
-    });
-};
-
-},{}],"3L9mC":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3L9mC":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _core = require("../core/core");
@@ -708,13 +708,41 @@ exports.default = (0, _core.createRouter)([
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _core = require("../core/core");
+var _headline = require("../components/Headline");
+var _headlineDefault = parcelHelpers.interopDefault(_headline);
 class Home extends (0, _core.Component) {
     render() {
-        this.el.innerHTML = "<h1>Hello World!</h1>";
+        const headline = new (0, _headlineDefault.default)().el;
+        this.el.classList.add("container");
+        this.el.append(headline);
     }
 }
 exports.default = Home;
 
-},{"../core/core":"3SuZC","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["e11Rl","gLLPy"], "gLLPy", "parcelRequire63d4")
+},{"../core/core":"3SuZC","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../components/Headline":"gaVgo"}],"gaVgo":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _core = require("../core/core");
+class Headline extends (0, _core.Component) {
+    render() {
+        this.el.classList.add("headline");
+        this.el.innerHTML = /* html */ `
+      <h1>
+          <span>OMDb API</span><br>
+          THE OPEN<br>
+          MOVIE DATABASE
+      </h1> 
+
+      <p>
+      The OMDb API is a RESTful web service to obtain movie information, 
+      all content and images on the site are contributed and maintained by our users.<br>
+      If you find this service useful, please consider making a one-time donation or become a patron.
+      </p>
+    `;
+    }
+}
+exports.default = Headline;
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../core/core":"3SuZC"}]},["e11Rl","gLLPy"], "gLLPy", "parcelRequire63d4")
 
 //# sourceMappingURL=index.4d6bcbeb.js.map
