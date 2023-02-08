@@ -750,6 +750,8 @@ exports.default = Headline;
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _core = require("../core/core");
+var _movie = require("../store/movie");
+var _movieDefault = parcelHelpers.interopDefault(_movie);
 class Search extends (0, _core.Component) {
     render() {
         this.el.classList.add("search");
@@ -760,17 +762,36 @@ class Search extends (0, _core.Component) {
       </button>
     `;
         const inputEl = this.el.querySelector("input");
-        inputEl.addEventListener("input", ()=>{});
+        inputEl.addEventListener("input", ()=>{
+            (0, _movieDefault.default).state.searchText = inputEl.value;
+        });
         inputEl.addEventListener("keydown", (event)=>{
-            event.key;
+            if (event.key === "Enter" && (0, _movieDefault.default).state.searchText.trim()) (0, _movie.searchMovies)(1);
         });
         const btnEl = this.el.querySelector(".btn");
         btnEl.addEventListener("click", ()=>{
-        //
+            if ((0, _movieDefault.default).state.searchText.trim()) (0, _movie.searchMovies)(1);
         });
     }
 }
 exports.default = Search;
+
+},{"../core/core":"3SuZC","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../store/movie":"kq1bo"}],"kq1bo":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "searchMovies", ()=>searchMovies);
+var _core = require("../core/core");
+const store = new (0, _core.Store)({
+    searchText: "",
+    page: 1,
+    movies: []
+});
+exports.default = store;
+const searchMovies = async (page)=>{
+    const res = await fetch(`https://omdbapi.com?apikey=7035c60c&s=${store.state.searchText}&page=${page}`);
+    const json = await res.json();
+    console.log(json);
+};
 
 },{"../core/core":"3SuZC","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["e11Rl","gLLPy"], "gLLPy", "parcelRequire63d4")
 
