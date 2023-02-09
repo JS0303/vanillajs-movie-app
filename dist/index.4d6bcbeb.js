@@ -768,7 +768,7 @@ class Search extends (0, _core.Component) {
     render() {
         this.el.classList.add("search");
         this.el.innerHTML = /* html */ `
-      <input placeholder="Enter the movie title to search!" />
+      <input value="${(0, _movieDefault.default).state.searchText}" placeholder="Enter the movie title to search!" />
       <button class="btn btn-primary">
         Search!
       </button>
@@ -873,7 +873,7 @@ class MovieList extends (0, _core.Component) {
 }
 exports.default = MovieList;
 
-},{"../core/core":"3SuZC","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../store/movie":"kq1bo","./MovieItem":"fAzE8"}],"fAzE8":[function(require,module,exports) {
+},{"../core/core":"3SuZC","../store/movie":"kq1bo","./MovieItem":"fAzE8","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"fAzE8":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _core = require("../core/core");
@@ -941,9 +941,10 @@ class Movie extends (0, _core.Component) {
         await (0, _movie.getMovieDetails)(history.state.id);
         console.log((0, _movieDefault.default).state.movie);
         const { movie  } = (0, _movieDefault.default).state;
+        const bigPoster = movie.Poster.replace("SX300", "SX700");
         this.el.classList.add("container", "the-movie");
         this.el.innerHTML = /* html */ `
-      <div  style="background-image: url(${movie.Poster})" class="poster"></div>
+      <div  style="background-image: url(${bigPoster})" class="poster"></div>
       <div class="specs">
         <div class="title">${movie.Title}</div>
         <div class="labels">
