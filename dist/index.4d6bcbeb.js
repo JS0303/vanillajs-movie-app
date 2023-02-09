@@ -757,6 +757,8 @@ exports.default = TheHeader;
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _core = require("../core/core");
+var _about = require("../store/about");
+var _aboutDefault = parcelHelpers.interopDefault(_about);
 class TheFooter extends (0, _core.Component) {
     constructor(){
         super({
@@ -764,12 +766,13 @@ class TheFooter extends (0, _core.Component) {
         });
     }
     render() {
+        const { github , repository  } = (0, _aboutDefault.default).state;
         this.el.innerHTML = /* html */ `
       <div>
-        <a href="https://github.com/JS0303/vanillajs-movie-app">Github Repository</a>
+        <a href="${repository}">Github Repository</a>
       </div>
       <div>
-        <a href="https://js0303.github.io/">
+        <a href="${github}">
           ${new Date().getFullYear()}
           JinSeok
         </a>
@@ -779,6 +782,19 @@ class TheFooter extends (0, _core.Component) {
 }
 exports.default = TheFooter;
 
+},{"../core/core":"3SuZC","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../store/about":"4RAJO"}],"4RAJO":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _core = require("../core/core");
+exports.default = new (0, _core.Store)({
+    photo: "https://item.kakaocdn.net/do/2697398bad5927125f3db2f8a248ca15113e2bd2b7407c8202a97d2241a96625",
+    name: "LeeJinSeok",
+    email: "wlstjr0303@gmail.com",
+    blog: "https://js0303.github.io/",
+    github: "https://github.com/JS0303",
+    repository: "https://github.com/JS0303/vanillajs-movie-app"
+});
+
 },{"../core/core":"3SuZC","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3L9mC":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
@@ -787,6 +803,8 @@ var _home = require("./Home");
 var _homeDefault = parcelHelpers.interopDefault(_home);
 var _movie = require("./Movie");
 var _movieDefault = parcelHelpers.interopDefault(_movie);
+var _about = require("./About");
+var _aboutDefault = parcelHelpers.interopDefault(_about);
 exports.default = (0, _core.createRouter)([
     {
         path: "#/",
@@ -795,10 +813,14 @@ exports.default = (0, _core.createRouter)([
     {
         path: "#/movie",
         component: (0, _movieDefault.default)
+    },
+    {
+        path: "#/about",
+        component: (0, _aboutDefault.default)
     }
 ]);
 
-},{"../core/core":"3SuZC","./Home":"0JSNG","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./Movie":"1LTyN"}],"0JSNG":[function(require,module,exports) {
+},{"../core/core":"3SuZC","./Home":"0JSNG","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./Movie":"1LTyN","./About":"gdB30"}],"0JSNG":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _core = require("../core/core");
@@ -1081,6 +1103,30 @@ class Movie extends (0, _core.Component) {
 }
 exports.default = Movie;
 
-},{"../core/core":"3SuZC","../store/movie":"kq1bo","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["e11Rl","gLLPy"], "gLLPy", "parcelRequire63d4")
+},{"../core/core":"3SuZC","../store/movie":"kq1bo","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gdB30":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _core = require("../core/core");
+var _about = require("../store/about");
+var _aboutDefault = parcelHelpers.interopDefault(_about);
+class About extends (0, _core.Component) {
+    render() {
+        const { photo , name , email , github , blog  } = (0, _aboutDefault.default).state;
+        this.el.classList.add("container", "about");
+        this.el.innerHTML = /* html */ `
+      <div style="background-image: url(${photo})" class="photo"></div>
+      <p class="name">${name}</p>
+      <p>
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=${email}" 
+        target="_blank">${email}</a>
+      </p>
+      <p><a href="${github}" target="_blank">Github</a></p>
+      <p><a href="${blog}" target="_blank">Blog</a></p>
+    `;
+    }
+}
+exports.default = About;
+
+},{"../core/core":"3SuZC","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../store/about":"4RAJO"}]},["e11Rl","gLLPy"], "gLLPy", "parcelRequire63d4")
 
 //# sourceMappingURL=index.4d6bcbeb.js.map
