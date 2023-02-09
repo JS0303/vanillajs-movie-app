@@ -710,7 +710,7 @@ class TheHeader extends (0, _core.Component) {
                     },
                     {
                         name: "Movie",
-                        href: "#/movie?id=tt4520988"
+                        href: "#/movie?id=tt4154796"
                     },
                     {
                         name: "About",
@@ -719,6 +719,9 @@ class TheHeader extends (0, _core.Component) {
                 ]
             }
         });
+        window.addEventListener("popstate", ()=>{
+            this.render();
+        });
     }
     render() {
         this.el.innerHTML = /* html */ `
@@ -726,9 +729,12 @@ class TheHeader extends (0, _core.Component) {
       <nav>
         <ul>
           ${this.state.menus.map((menu)=>{
+            const href = menu.href.split("?")[0];
+            const hash = location.hash.split("?")[0];
+            const isActive = href === hash;
             return /* html */ `
               <li>
-                <a href="${menu.href}">
+                <a class="${isActive ? "active" : ""}" href="${menu.href}">
                   ${menu.name}
                 </a>
               </li>
