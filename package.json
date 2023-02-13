@@ -2,10 +2,9 @@
   "name": "vanillajs-movie-app",
   "version": "1.0.0",
   "description": "fastcampus vanillajs-movie-app clone",
-  "main": "index.js",
   "scripts": {
     "dev": "parcel ./index.html",
-    "build": "parcel build ./index.html"
+    "build": "npm run build ./index.html"
   },
   "repository": {
     "type": "git",
