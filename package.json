@@ -4,7 +4,8 @@
   "description": "fastcampus vanillajs-movie-app clone",
   "scripts": {
     "dev": "parcel ./index.html",
-    "build": "parcel build ./index.html"
+    "build": "parcel build ./index.html",
+    "vercel": "vercel dev"
   },
   "repository": {
     "type": "git",
@@ -14,7 +15,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "parcel": "^2.7.0",
-    "vercel": "^28.5.6"
+    "parcel": "^2.7.0"
+  },
+  "devDependencies": {
+    "vercel": "^28.15.3"
   }
 }
