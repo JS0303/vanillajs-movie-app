@@ -16,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/JS0303/vanillajs-movie-app/issues"
   },
-  "homepage": "https://github.com/JS0303/vanillajs-movie-app#readme"
+  "homepage": "https://github.com/JS0303/vanillajs-movie-app#readme",
+  "dependencies": {
+    "lodash": "^4.17.21",
+    "update": "^0.7.4"
+  }
 }
