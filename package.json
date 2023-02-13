@@ -13,12 +13,8 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/JS0303/vanillajs-movie-app/issues"
-  },
-  "homepage": "https://github.com/JS0303/vanillajs-movie-app#readme",
   "dependencies": {
-    "lodash": "^4.17.21",
-    "update": "^0.7.4"
+    "parcel": "^2.7.0",
+    "vercel": "^28.5.6"
   }
 }
