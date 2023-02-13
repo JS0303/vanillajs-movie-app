@@ -19,6 +19,7 @@
     "parcel": "^2.7.0"
   },
   "devDependencies": {
+    "dotenv": "^16.0.3",
     "vercel": "^28.15.3"
   }
 }
