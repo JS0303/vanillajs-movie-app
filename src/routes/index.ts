@@ -5,7 +5,7 @@ import About from "./About";
 import NotFound from "./NotFound";
 
 export default createRouter([
-  { path: "#/", component: Home },
+  { path: "#/", component: Home, name: "" },
   { path: "#/movie", component: Movie },
   { path: "#/about", component: About },
   { path: ".*", component: NotFound },
