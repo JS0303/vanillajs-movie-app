@@ -1,6 +1,15 @@
 import { Store } from "../core/core";
 
-export default new Store({
+interface State {
+  photo: string;
+  name: string;
+  email: string;
+  blog: string;
+  github: string;
+  repository: string;
+}
+
+export default new Store<State>({
   photo:
     "https://item.kakaocdn.net/do/2697398bad5927125f3db2f8a248ca15113e2bd2b7407c8202a97d2241a96625",
   name: "LeeJinSeok",
