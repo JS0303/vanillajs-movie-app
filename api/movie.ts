@@ -1,5 +1,5 @@
-import fetch from "node-fetch";
 import { VercelRequest, VercelResponse } from "@vercel/node";
+import fetch from "node-fetch";
 
 const { APIKEY } = process.env;
 
